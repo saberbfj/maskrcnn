@@ -1,0 +1,28 @@
+Class      Images   Labels          mAP50   mAP50-95
+all        81        100          0.2636      0.1415
+
+Mask       Images   Labels          mAP50   mAP50-95
+all        81        100          0.2420      0.1411
+
+Detailed Metrics:
+Bounding Box:
+  mAP50: 0.2636
+  mAP50-95: 0.1415
+  mAP75: 0.1307
+  AP_small: 0.0541
+  AP_medium: 0.1624
+  AP_large: 0.2796
+  AR_max1: 0.0520
+  AR_max10: 0.2345
+  AR_max100: 0.3791
+
+Instance Segmentation:
+  mAP50: 0.2420
+  mAP50-95: 0.1411
+  mAP75: 0.1449
+  AP_small: 0.0462
+  AP_medium: 0.1614
+  AP_large: 0.2989
+  AR_max1: 0.0537
+  AR_max10: 0.2349
+  AR_max100: 0.3723

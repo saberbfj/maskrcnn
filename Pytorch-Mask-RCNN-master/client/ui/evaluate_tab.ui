@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EvaluateTab</class>
+ <widget class="QWidget" name="EvaluateTab">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="test_layout">
+     <item>
+      <widget class="QLabel" name="test_label">
+       <property name="text">
+        <string>测试集目录:</string>
+       </property>
+       <property name="fixedWidth">
+        <number>100</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="test_input">
+       <property name="placeholderText">
+        <string>选择测试集目录...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="browse_test_btn">
+       <property name="text">
+        <string>浏览</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="model_layout">
+     <item>
+      <widget class="QLabel" name="model_label">
+       <property name="text">
+        <string>模型权重:</string>
+       </property>
+       <property name="fixedWidth">
+        <number>100</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="weights_input">
+       <property name="placeholderText">
+        <string>选择模型权重文件...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="browse_weights_btn">
+       <property name="text">
+        <string>浏览</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="save_layout">
+     <item>
+      <widget class="QLabel" name="save_label">
+       <property name="text">
+        <string>保存目录:</string>
+       </property>
+       <property name="fixedWidth">
+        <number>100</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="eval_save_input">
+       <property name="placeholderText">
+        <string>选择评估结果保存目录...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="browse_eval_save_btn">
+       <property name="text">
+        <string>浏览</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QPushButton" name="start_evaluate_btn">
+     <property name="text">
+      <string>开始评估</string>
+     </property>
+     <property name="objectName">
+      <string>primaryBtn</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QProgressBar" name="eval_progress">
+     <property name="visible">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="result_group">
+     <property name="title">
+      <string>评估结果</string>
+     </property>
+     <layout class="QVBoxLayout" name="result_layout">
+      <item>
+       <layout class="QHBoxLayout" name="metrics_layout">
+        <item>
+         <widget class="QGroupBox" name="bbox_map50_card">
+          <property name="styleSheet">
+           <string>QGroupBox { border: 2px solid #3498db; border-radius: 8px; background-color: #ebf5fb; padding: 10px; }</string>
+          </property>
+          <layout class="QVBoxLayout" name="bbox_map50_layout">
+           <item>
+            <widget class="QLabel" name="bbox_map50_label">
+             <property name="text">
+              <string>BBox mAP50</string>
+             </property>
+             <property name="styleSheet">
+              <string>font-size: 12px; color: #2c3e50; font-weight: 500;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bbox_map50_value">
+             <property name="text">
+              <string>--</string>
+             </property>
+             <property name="styleSheet">
+              <string>font-size: 24px; color: #3498db; font-weight: 700;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="segm_map50_card">
+          <property name="styleSheet">
+           <string>QGroupBox { border: 2px solid #e74c3c; border-radius: 8px; background-color: #fdedec; padding: 10px; }</string>
+          </property>
+          <layout class="QVBoxLayout" name="segm_map50_layout">
+           <item>
+            <widget class="QLabel" name="segm_map50_label">
+             <property name="text">
+              <string>Segm mAP50</string>
+             </property>
+             <property name="styleSheet">
+              <string>font-size: 12px; color: #2c3e50; font-weight: 500;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="segm_map50_value">
+             <property name="text">
+              <string>--</string>
+             </property>
+             <property name="styleSheet">
+              <string>font-size: 24px; color: #e74c3c; font-weight: 700;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="ar_max100_card">
+          <property name="styleSheet">
+           <string>QGroupBox { border: 2px solid #2ecc71; border-radius: 8px; background-color: #e8f8f5; padding: 10px; }</string>
+          </property>
+          <layout class="QVBoxLayout" name="ar_max100_layout">
+           <item>
+            <widget class="QLabel" name="ar_max100_label">
+             <property name="text">
+              <string>AR max100</string>
+             </property>
+             <property name="styleSheet">
+              <string>font-size: 12px; color: #2c3e50; font-weight: 500;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="ar_max100_value">
+             <property name="text">
+              <string>--</string>
+             </property>
+             <property name="styleSheet">
+              <string>font-size: 24px; color: #2ecc71; font-weight: 700;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTableWidget" name="eval_results_table">
+        <property name="columnCount">
+         <number>4</number>
+        </property>
+        <column>
+         <property name="text">
+          <string>指标</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>边界框</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>实例分割</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>说明</string>
+         </property>
+        </column>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="alternatingRowColors">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="editTriggers">
+         <enum>QAbstractItemView::NoEditTriggers</enum>
+        </attribute>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="action_layout">
+     <item>
+      <widget class="QPushButton" name="export_btn">
+       <property name="text">
+        <string>导出结果</string>
+       </property>
+       <property name="objectName">
+        <string>successBtn</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="view_history_btn">
+       <property name="text">
+        <string>查看历史</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="action_spacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="log_group">
+     <property name="title">
+      <string>评估日志</string>
+     </property>
+     <layout class="QVBoxLayout" name="log_layout">
+      <item>
+       <widget class="QTextEdit" name="evaluate_log">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="maximumHeight">
+         <number>150</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UserTab</class>
+ <widget class="QWidget" name="UserTab">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="stats_layout">
+     <item>
+      <widget class="QGroupBox" name="total_users_card">
+       <property name="styleSheet">
+        <string>QGroupBox { border: 2px solid #3498db; border-radius: 8px; background-color: #ebf5fb; padding: 10px; }</string>
+       </property>
+       <layout class="QVBoxLayout" name="total_users_layout">
+        <item>
+         <widget class="QLabel" name="total_users_label">
+          <property name="text">
+           <string>总用户数</string>
+          </property>
+          <property name="styleSheet">
+           <string>font-size: 14px; color: #2c3e50; font-weight: 500;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="total_users_count">
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="styleSheet">
+           <string>font-size: 28px; color: #3498db; font-weight: 700;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="admin_count_card">
+       <property name="styleSheet">
+        <string>QGroupBox { border: 2px solid #9b59b6; border-radius: 8px; background-color: #f5eef8; padding: 10px; }</string>
+       </property>
+       <layout class="QVBoxLayout" name="admin_count_layout">
+        <item>
+         <widget class="QLabel" name="admin_count_label">
+          <property name="text">
+           <string>管理员数</string>
+          </property>
+          <property name="styleSheet">
+           <string>font-size: 14px; color: #2c3e50; font-weight: 500;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="admin_count_count">
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="styleSheet">
+           <string>font-size: 28px; color: #9b59b6; font-weight: 700;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="normal_users_card">
+       <property name="styleSheet">
+        <string>QGroupBox { border: 2px solid #2ecc71; border-radius: 8px; background-color: #e8f8f5; padding: 10px; }</string>
+       </property>
+       <layout class="QVBoxLayout" name="normal_users_layout">
+        <item>
+         <widget class="QLabel" name="normal_users_label">
+          <property name="text">
+           <string>普通用户数</string>
+          </property>
+          <property name="styleSheet">
+           <string>font-size: 14px; color: #2c3e50; font-weight: 500;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="normal_users_count">
+          <property name="text">
+           <string>0</string>
+          </property>
+          <property name="styleSheet">
+           <string>font-size: 28px; color: #2ecc71; font-weight: 700;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="search_layout">
+     <item>
+      <widget class="QLineEdit" name="user_search_input">
+       <property name="placeholderText">
+        <string>搜索用户名...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="add_user_btn">
+       <property name="text">
+        <string>添加用户</string>
+       </property>
+       <property name="objectName">
+        <string>successBtn</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="refresh_btn">
+       <property name="text">
+        <string>刷新用户列表</string>
+       </property>
+       <property name="objectName">
+        <string>primaryBtn</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="user_table">
+     <property name="columnCount">
+      <number>6</number>
+     </property>
+     <column>
+      <property name="text">
+       <string>用户ID</string>
+      </property>
+      <property name="minimumWidth">
+       <number>100</number>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>用户名</string>
+      </property>
+      <property name="minimumWidth">
+       <number>100</number>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>创建时间</string>
+      </property>
+      <property name="minimumWidth">
+       <number>240</number>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>最后登录</string>
+      </property>
+      <property name="minimumWidth">
+       <number>240</number>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>是否管理员</string>
+      </property>
+      <property name="minimumWidth">
+       <number>160</number>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>操作</string>
+      </property>
+      <property name="minimumWidth">
+       <number>300</number>
+      </property>
+     </column>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="alternatingRowColors">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="editTriggers">
+      <enum>QAbstractItemView::NoEditTriggers</enum>
+     </attribute>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

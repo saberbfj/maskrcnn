@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PredictTab</class>
+ <widget class="QWidget" name="PredictTab">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="image_layout">
+     <item>
+      <widget class="QLabel" name="image_label">
+       <property name="text">
+        <string>图片路径:</string>
+       </property>
+       <property name="fixedWidth">
+        <number>100</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="image_input">
+       <property name="placeholderText">
+        <string>选择待预测图片...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="browse_image_btn">
+       <property name="text">
+        <string>浏览</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="save_layout">
+     <item>
+      <widget class="QLabel" name="save_label">
+       <property name="text">
+        <string>保存路径:</string>
+       </property>
+       <property name="fixedWidth">
+        <number>100</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="predict_save_input">
+       <property name="placeholderText">
+        <string>选择预测结果保存目录...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="browse_predict_save_btn">
+       <property name="text">
+        <string>浏览</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="model_params_layout">
+     <item>
+      <widget class="QWidget" name="model_left_widget">
+       <property name="styleSheet">
+        <string>background-color: #E3F2FD; border-radius: 5px; padding: 5px;</string>
+       </property>
+       <layout class="QVBoxLayout" name="model_left_layout">
+        <item>
+         <widget class="QLabel" name="model_label">
+          <property name="text">
+           <string>模型权重（可多选）:</string>
+          </property>
+          <property name="fixedWidth">
+           <number>180</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="predict_weights_list">
+          <property name="selectionMode">
+           <enum>QAbstractItemView::ExtendedSelection</enum>
+          </property>
+          <property name="minimumHeight">
+           <number>200</number>
+          </property>
+          <property name="maximumHeight">
+           <number>240</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="model_btn_layout">
+          <item>
+           <widget class="QPushButton" name="add_model_btn">
+            <property name="text">
+             <string>添加模型</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="remove_model_btn">
+            <property name="text">
+             <string>移除选中</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="model_right_widget">
+       <property name="styleSheet">
+        <string>background-color: #E8F5E9; border-radius: 5px; padding: 5px;</string>
+       </property>
+       <layout class="QVBoxLayout" name="model_right_layout">
+        <item>
+         <layout class="QHBoxLayout" name="conf_layout">
+          <item>
+           <widget class="QLabel" name="box_conf_label">
+            <property name="text">
+             <string>边界框置信度:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="box_conf_input">
+            <property name="text">
+             <string>0.3</string>
+            </property>
+            <property name="fixedWidth">
+             <number>100</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="mask_conf_label">
+            <property name="text">
+             <string>掩码置信度:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="mask_conf_input">
+            <property name="text">
+             <string>0.3</string>
+            </property>
+            <property name="fixedWidth">
+             <number>100</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="conf_spacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="start_predict_btn">
+          <property name="text">
+           <string>开始预测</string>
+          </property>
+          <property name="objectName">
+           <string>primaryBtn</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="result_group">
+     <property name="title">
+      <string>预测结果</string>
+     </property>
+     <layout class="QHBoxLayout" name="result_layout">
+      <item>
+       <layout class="QVBoxLayout" name="original_layout">
+        <item>
+         <widget class="QLabel" name="original_label">
+          <property name="text">
+           <string>原图</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="original_image_label">
+          <property name="styleSheet">
+           <string>border: 1px solid #ccc;</string>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>450</width>
+            <height>450</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="result_image_layout">
+        <item>
+         <widget class="QLabel" name="result_label">
+          <property name="text">
+           <string>分割结果</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="result_image_label">
+          <property name="styleSheet">
+           <string>border: 1px solid #ccc;</string>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>450</width>
+            <height>450</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="log_layout">
+        <item>
+         <widget class="QLabel" name="log_label">
+          <property name="text">
+           <string>预测日志</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="predict_log">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

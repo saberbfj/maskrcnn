@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TrainTab</class>
+ <widget class="QWidget" name="TrainTab">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <layout class="QVBoxLayout" name="left_layout">
+     <item>
+      <layout class="QHBoxLayout" name="dataset_layout">
+       <item>
+        <widget class="QLabel" name="dataset_label">
+         <property name="text">
+          <string>数据集目录:</string>
+         </property>
+         <property name="fixedWidth">
+          <number>100</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="dataset_input">
+         <property name="placeholderText">
+          <string>选择数据集目录...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="browse_dataset_btn">
+         <property name="text">
+          <string>浏览</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="save_layout">
+       <item>
+        <widget class="QLabel" name="save_label">
+         <property name="text">
+          <string>保存目录:</string>
+         </property>
+         <property name="fixedWidth">
+          <number>100</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="save_input">
+         <property name="placeholderText">
+          <string>选择模型保存目录...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="browse_save_btn">
+         <property name="text">
+          <string>浏览</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="button_layout">
+       <item>
+        <widget class="QPushButton" name="start_train_btn">
+         <property name="text">
+          <string>开始训练</string>
+         </property>
+         <property name="objectName">
+          <string>primaryBtn</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="stop_train_btn">
+         <property name="text">
+          <string>停止训练</string>
+         </property>
+         <property name="objectName">
+          <string>dangerBtn</string>
+         </property>
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QProgressBar" name="train_progress">
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="log_group">
+       <property name="title">
+        <string>训练日志</string>
+       </property>
+       <layout class="QVBoxLayout" name="log_layout">
+        <item>
+         <widget class="QTextEdit" name="train_log">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="right_layout">
+     <item>
+      <widget class="QGroupBox" name="loss_group">
+       <property name="title">
+        <string>损失函数变化</string>
+       </property>
+       <layout class="QVBoxLayout" name="loss_layout">
+        <item>
+         <widget class="QWidget" name="legend_widget">
+          <layout class="QGridLayout" name="legend_layout">
+           <item row="0" column="0">
+            <widget class="QWidget" name="legend_total">
+             <layout class="QHBoxLayout" name="legend_total_layout">
+              <item>
+               <widget class="QWidget" name="color_total">
+                <property name="styleSheet">
+                 <string>background-color: #FF6384; border-radius: 2px;</string>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_total">
+                <property name="text">
+                 <string>总损失</string>
+                </property>
+                <property name="styleSheet">
+                 <string>font-size: 12px;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QWidget" name="legend_class">
+             <layout class="QHBoxLayout" name="legend_class_layout">
+              <item>
+               <widget class="QWidget" name="color_class">
+                <property name="styleSheet">
+                 <string>background-color: #90EE90; border-radius: 2px;</string>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_class">
+                <property name="text">
+                 <string>分类损失</string>
+                </property>
+                <property name="styleSheet">
+                 <string>font-size: 12px;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QWidget" name="legend_box">
+             <layout class="QHBoxLayout" name="legend_box_layout">
+              <item>
+               <widget class="QWidget" name="color_box">
+                <property name="styleSheet">
+                 <string>background-color: #ADD8E6; border-radius: 2px;</string>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_box">
+                <property name="text">
+                 <string>边界框损失</string>
+                </property>
+                <property name="styleSheet">
+                 <string>font-size: 12px;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QWidget" name="legend_mask">
+             <layout class="QHBoxLayout" name="legend_mask_layout">
+              <item>
+               <widget class="QWidget" name="color_mask">
+                <property name="styleSheet">
+                 <string>background-color: #FFD700; border-radius: 2px;</string>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_mask">
+                <property name="text">
+                 <string>掩码损失</string>
+                </property>
+                <property name="styleSheet">
+                 <string>font-size: 12px;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="loss_chart_container">
+          <property name="minimumSize">
+           <size>
+            <width>300</width>
+            <height>300</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>350</width>
+            <height>350</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="summary_group">
+       <property name="title">
+        <string>训练总结</string>
+       </property>
+       <layout class="QVBoxLayout" name="summary_layout">
+        <item>
+         <widget class="QTextEdit" name="train_summary">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="styleSheet">
+           <string>font-size: 12px; line-height: 1.4;</string>
+          </property>
+          <property name="placeholderText">
+           <string>训练尚未开始，等待训练数据...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
